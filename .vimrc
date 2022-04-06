@@ -18,7 +18,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Using a non-default branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -43,7 +43,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'alvan/vim-closetag'
-Plug 'preservim/nerdcommenter'
+"Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'mileszs/ack.vim'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-fugitive'
@@ -77,8 +78,18 @@ Plug 'mhinz/vim-grepper'
 
 " Better display unwanted whitespace.
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'preservim/tagbar'
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+      \ 'do': 'yarn install --frozen-lockfile --production',
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
-
+Plug 'tpope/vim-surround'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'chrisbra/Colorizer'
 " Initialize plugin system
 call plug#end()
 
@@ -89,6 +100,7 @@ let g:UltiSnipsExpandTrigger="<s-TAB>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set encoding=utf-8
+
 " assuming you want to use snipmate snippet engine
 "ActivateAddons vim-snippets snipmate
 
@@ -103,9 +115,9 @@ let g:syntastic_check_on_wq = 0
 let g:rainbow_active = 1
 
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\}
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['eslint'],
+      \}
 let g:ale_fix_on_save = 1
 
 " This is the default option:
@@ -152,11 +164,11 @@ let g:closetag_emptyTags_caseSensitive = 1
 " Disables auto-close if not in a "valid" region (based on filetype)
 "
 let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ 'typescriptreact': 'jsxRegion,tsxRegion',
-    \ 'javascriptreact': 'jsxRegion',
-    \ }
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ 'typescriptreact': 'jsxRegion,tsxRegion',
+      \ 'javascriptreact': 'jsxRegion',
+      \ }
 
 " Shortcut for closing tags, default is '>'
 "
@@ -194,4 +206,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:vim_markdown_emphasis_multiline = 0
+let g:airline_theme='simple'
 map <C-y> :w !xclip -sel c <CR><CR>
+
+set number
