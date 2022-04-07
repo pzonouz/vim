@@ -45,8 +45,8 @@ Plug 'haya14busa/is.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'preservim/tagbar'
 Plug 'prettier/vim-prettier', {
-                  \ 'do': 'yarn install --frozen-lockfile --production',
-                  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+			\ 'do': 'yarn install --frozen-lockfile --production',
+			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -67,6 +67,7 @@ Plug 'w0rp/ale'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
 Plug 'davidhalter/jedi-vim'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Initialize plugin system
 call plug#end()
@@ -101,9 +102,9 @@ let g:syntastic_check_on_wq = 0
 let g:rainbow_active = 1
 
 let g:ale_fixers = {
-                  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-                  \   'javascript': ['eslint'],
-                  \}
+			\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+			\   'javascript': ['eslint'],
+			\}
 let g:ale_fix_on_save = 1
 
 " This is the default option:
@@ -150,11 +151,11 @@ let g:closetag_emptyTags_caseSensitive = 1
 " Disables auto-close if not in a "valid" region (based on filetype)
 "
 let g:closetag_regions = {
-                  \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-                  \ 'javascript.jsx': 'jsxRegion',
-                  \ 'typescriptreact': 'jsxRegion,tsxRegion',
-                  \ 'javascriptreact': 'jsxRegion',
-                  \ }
+			\ 'typescript.tsx': 'jsxRegion,tsxRegion',
+			\ 'javascript.jsx': 'jsxRegion',
+			\ 'typescriptreact': 'jsxRegion,tsxRegion',
+			\ 'javascriptreact': 'jsxRegion',
+			\ }
 
 " Shortcut for closing tags, default is '>'
 "
