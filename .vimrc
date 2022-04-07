@@ -11,95 +11,81 @@ call plug#begin()
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug '907th/vim-auto-save'
+Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
-" On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-" Using a non-default branch
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-"Plug 'Valloric/YouCompleteMe'
-Plug 'davidhalter/jedi-vim'
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-"Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
+Plug 'SirVer/ultisnips'
 Plug 'frazrepo/vim-rainbow'
-"Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
+" Plug 'mileszs/ack.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'alvan/vim-closetag'
-"Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-commentary'
-Plug 'mileszs/ack.vim'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-fugitive'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'mbbill/undotree'
 Plug 'psliwka/vim-smoothie'
-Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-" Helpers for moving and manipulating files / directories.
-Plug 'tpope/vim-eunuch'
-
-" Run a diff on 2 directories.
 Plug 'will133/vim-dirdiff'
-
-" Run a diff on 2 blocks of text.
 Plug 'AndrewRadev/linediff.vim'
-
-" Add spelling errors to the quickfix list (vim-ingo-library is a dependency).
 Plug 'inkarkat/vim-ingo-library' | Plug 'inkarkat/vim-SpellCheck'
-
-" Briefly highlight which text was yanked.
 Plug 'machakann/vim-highlightedyank'
-
-" Automatically clear search highlights after you move your cursor.
 Plug 'haya14busa/is.vim'
-
-" Handle multi-file find and replace.
-Plug 'mhinz/vim-grepper'
-
-" Better display unwanted whitespace.
+" Plug 'mhinz/vim-grepper'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'preservim/tagbar'
-" post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
-      \ 'do': 'yarn install --frozen-lockfile --production',
-      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-
+                  \ 'do': 'yarn install --frozen-lockfile --production',
+                  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-surround'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'chrisbra/Colorizer'
+" Plug 'othree/javascript-libraries-syntax.vim'
+
+" Language Support
+" PolyGlot Conflict
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'plasticboy/vim-markdown'
+Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-markdown'
+Plug 'w0rp/ale'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'elzr/vim-json'
+Plug 'davidhalter/jedi-vim'
+
 " Initialize plugin system
 call plug#end()
-
+set nocompatible
 set number
 filetype plugin on
 colorscheme tokyonight
-let g:UltiSnipsExpandTrigger="<s-TAB>"
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set encoding=utf-8
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:floaterm_keymap_toggle = '<C-T>'
+nnoremap <C-u> :UndotreeToggle<CR>
 
 " assuming you want to use snipmate snippet engine
 "ActivateAddons vim-snippets snipmate
@@ -115,9 +101,9 @@ let g:syntastic_check_on_wq = 0
 let g:rainbow_active = 1
 
 let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['eslint'],
-      \}
+                  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+                  \   'javascript': ['eslint'],
+                  \}
 let g:ale_fix_on_save = 1
 
 " This is the default option:
@@ -164,11 +150,11 @@ let g:closetag_emptyTags_caseSensitive = 1
 " Disables auto-close if not in a "valid" region (based on filetype)
 "
 let g:closetag_regions = {
-      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-      \ 'javascript.jsx': 'jsxRegion',
-      \ 'typescriptreact': 'jsxRegion,tsxRegion',
-      \ 'javascriptreact': 'jsxRegion',
-      \ }
+                  \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+                  \ 'javascript.jsx': 'jsxRegion',
+                  \ 'typescriptreact': 'jsxRegion,tsxRegion',
+                  \ 'javascriptreact': 'jsxRegion',
+                  \ }
 
 " Shortcut for closing tags, default is '>'
 "
@@ -207,6 +193,8 @@ let g:NERDToggleCheckAllLines = 1
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:vim_markdown_emphasis_multiline = 0
 let g:airline_theme='simple'
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_react = 1
 map <C-y> :w !xclip -sel c <CR><CR>
-
 set number
+au BufWrite * :Autoformat
