@@ -1,1 +1,1 @@
-#vim
+Install nvim + vimPlug

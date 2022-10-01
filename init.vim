@@ -1,12 +1,21 @@
-syntax on
 filetype plugin indent on
-" set background=dark
-" colorscheme dracula 
+syntax on
+set background=dark " or light if you want light mode
+set termguicolors     " enable true colors support
 set mouse=a
 let mapleader=" "
 
 call plug#begin()
+"colorschemes
 Plug 'morhetz/gruvbox'
+Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'sickill/vim-monokai'
+Plug 'NLKNguyen/papercolor-theme'
+
+
+
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', {
@@ -47,7 +56,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'sainnhe/edge'
 Plug 'dracula/vim'
-Plug 'ayu-theme/ayu-vim'
 " Plug 'miyakogi/conoline.vim'
 
 call plug#end()
@@ -73,16 +81,22 @@ nmap <buffer> <leader>gr <Plug>(coc-references)
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 "My own config
+let g:UltiSnipsExpandTrigger="<tab>"                          
+let g:UltiSnipsJumpForwardTrigger="<tab>"                      
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
 au BufWritePre *.html,*.css,*.js :Prettier<CR>
-nnoremap <Leader>vs :so ~/.vimrc<CR>
-nnoremap <Leader>ve :vsplit  ~/.vimrc<CR>
-noremap  <F5> :NERDTreeToggle<CR>
+set statusline=%f
+nnoremap <Leader>vs :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>ve :vsplit ~/.config/nvim/init.vim<CR>
 xmap ga <Plug>(EasyAlign)
 noremap <F2> :Autoformat<CR>
 au BufWritePre *.c,*.cpp,*.py :Autoformat
-set termguicolors     " enable true colors support
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
 noremap <c-left> <c-w><
 noremap <c-right> <c-w>>
 noremap <c-up> <c-w>+
@@ -99,7 +113,16 @@ autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
 let &t_SI.="\e[6 q"
 let &t_EI.="\e[6 q"
-
+"NERDTree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen=1
+" Start NERDTree when Vim is started without file arguments.
+" atocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+au VimEnter * :NERDTree
 " let g:indent_guides_enable_on_vim_startup = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_concealcursor = 'inc'
@@ -122,3 +145,7 @@ let g:syntastic_check_on_wq = 0
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
+
+
+"set colorscheme
+colorscheme gruvbox
