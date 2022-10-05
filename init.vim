@@ -14,15 +14,12 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sickill/vim-monokai'
 Plug 'NLKNguyen/papercolor-theme'
 
-
-
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', {
 			\ 'do': 'yarn install --frozen-lockfile --production',
 			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'| Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -31,16 +28,13 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'frazrepo/vim-rainbow'
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
 Plug 'voldikss/vim-floaterm'
 Plug 'preservim/tagbar'
 Plug 'docunext/closetag.vim'
-Plug 'preservim/nerdtree', {'on':'NERDTreeToggle'}
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'airblade/vim-gitgutter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'gko/vim-coloresque'
 Plug 'flazz/vim-colorschemes'
@@ -49,7 +43,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'junegunn/goyo.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-easy-align'
 " Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
 " Plug 'lukas-reineke/indent-blankline.nvim'
@@ -57,6 +50,8 @@ Plug 'vim-autoformat/vim-autoformat'
 Plug 'sainnhe/edge'
 Plug 'dracula/vim'
 " Plug 'miyakogi/conoline.vim'
+Plug 'turbio/bracey.vim'
+Plug 'skammer/vim-css-color'
 
 call plug#end()
 
@@ -81,6 +76,35 @@ nmap <buffer> <leader>gr <Plug>(coc-references)
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 "My own config
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 let g:UltiSnipsExpandTrigger="<tab>"                          
 let g:UltiSnipsJumpForwardTrigger="<tab>"                      
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -88,6 +112,9 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 
+set foldmethod=syntax
+let g:cssColorVimDoNotMessMyUpdatetime = 1
+set ic "ignorecase in search
 au BufWritePre *.html,*.css,*.js :Prettier<CR>
 set statusline=%f
 nnoremap <Leader>vs :so ~/.config/nvim/init.vim<CR>
@@ -113,16 +140,9 @@ autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
 let &t_SI.="\e[6 q"
 let &t_EI.="\e[6 q"
-"NERDTree
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-let NERDTreeQuitOnOpen=1
-" Start NERDTree when Vim is started without file arguments.
-" atocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-au VimEnter * :NERDTree
+
+" let NERDTreeQuitOnOpen=1
+
 " let g:indent_guides_enable_on_vim_startup = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_concealcursor = 'inc'
@@ -149,3 +169,4 @@ let g:floaterm_height = 0.9
 
 "set colorscheme
 colorscheme gruvbox
+
