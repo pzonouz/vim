@@ -121,3 +121,4 @@ alias c="clear"
 alias e="exit"
 alias v="nvim"
 alias ls="logo-ls"
+
