@@ -52,7 +52,7 @@ Plug 'sainnhe/edge'
 Plug 'dracula/vim'
 " Plug 'miyakogi/conoline.vim'
 Plug 'turbio/bracey.vim'
-Plug 'skammer/vim-css-color'
+" Plug 'skammer/vim-css-color'
 
 call plug#end()
 
@@ -118,13 +118,13 @@ let g:coc_snippet_prev = '<S-TAB>'
 " set foldmethod=syntax
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 set ic "ignorecase in search
-" au BufWritePre *.html,*.css,*.js :Prettier<CR>
+au BufWritePre *.html,*.css,*.js :Prettier<CR>
 set statusline=%f
 nnoremap <Leader>vs :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>ve :vsplit ~/.config/nvim/init.vim<CR>
 xmap ga <Plug>(EasyAlign)
 noremap <F2> :Autoformat<CR>
-" au BufWritePre *.c,*.cpp,*.py :Autoformat
+au BufWritePre *.c,*.cpp,*.py :Autoformat
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
 noremap <c-left> <c-w><
@@ -138,8 +138,8 @@ noremap <c-left> <c-w>left
 set number
 set cursorline
 hi cursorline cterm=none term=none
-" autocmd WinEnter * setlocal cursorline
-" autocmd WinLeave * setlocal nocursorline
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
 let &t_SI.="\e[6 q"
 let &t_EI.="\e[6 q"
