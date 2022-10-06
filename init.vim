@@ -77,7 +77,9 @@ nmap <buffer> <leader>gr <Plug>(coc-references)
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 "My own config
-" air-line
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+"air-line
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
@@ -113,16 +115,16 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 
-set foldmethod=syntax
+" set foldmethod=syntax
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 set ic "ignorecase in search
-au BufWritePre *.html,*.css,*.js :Prettier<CR>
+" au BufWritePre *.html,*.css,*.js :Prettier<CR>
 set statusline=%f
 nnoremap <Leader>vs :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>ve :vsplit ~/.config/nvim/init.vim<CR>
 xmap ga <Plug>(EasyAlign)
 noremap <F2> :Autoformat<CR>
-au BufWritePre *.c,*.cpp,*.py :Autoformat
+" au BufWritePre *.c,*.cpp,*.py :Autoformat
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
 noremap <c-left> <c-w><
@@ -133,11 +135,11 @@ noremap <c-down> <c-w>down
 noremap <c-up> <c-w>up
 noremap <c-right> <c-w>right
 noremap <c-left> <c-w>left
-set number!
+set number
 set cursorline
 hi cursorline cterm=none term=none
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+" autocmd WinEnter * setlocal cursorline
+" autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
 let &t_SI.="\e[6 q"
 let &t_EI.="\e[6 q"
