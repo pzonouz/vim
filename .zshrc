@@ -113,6 +113,7 @@ export LD_LIBRARY_PATH=/usr/local/lib
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(jump shell)"
 
 [[ -s /home/peyman/.autojump/etc/profile.d/autojump.sh ]] && source /home/peyman/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
