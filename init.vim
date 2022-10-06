@@ -20,6 +20,7 @@ Plug 'prettier/vim-prettier', {
 			\ 'do': 'yarn install --frozen-lockfile --production',
 			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'| Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
