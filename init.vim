@@ -1,3 +1,12 @@
+"Lua Part
+lua require "user.keymaps"
+lua require "user.options"
+lua require "user.plugins"
+
+
+
+
+"Vim part
 filetype plugin indent on
 syntax on
 set background=dark " or light if you want light mode
@@ -8,12 +17,8 @@ let mapleader=" "
 call plug#begin()
 "colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'sickill/vim-monokai'
-Plug 'NLKNguyen/papercolor-theme'
 
+"Plugins ---- vim Plug
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'prettier/vim-prettier', {
@@ -44,15 +49,11 @@ Plug 'vimwiki/vimwiki'
 Plug 'junegunn/goyo.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-easy-align'
-" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
-" Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'sainnhe/edge'
 Plug 'dracula/vim'
-" Plug 'miyakogi/conoline.vim'
 Plug 'turbio/bracey.vim'
-" Plug 'skammer/vim-css-color'
 
 call plug#end()
 
@@ -120,8 +121,8 @@ let g:cssColorVimDoNotMessMyUpdatetime = 1
 set ic "ignorecase in search
 au BufWritePre *.html,*.css,*.js :Prettier<CR>
 set statusline=%f
-nnoremap <Leader>vs :so ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>ve :vsplit ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>vs :so ~/vim/init.vim<CR>
+nnoremap <Leader>ve :vsplit ~/vim/init.vim<CR>
 xmap ga <Plug>(EasyAlign)
 noremap <F2> :Autoformat<CR>
 au BufWritePre *.c,*.cpp,*.py :Autoformat
@@ -136,15 +137,13 @@ noremap <c-up> <c-w>up
 noremap <c-right> <c-w>right
 noremap <c-left> <c-w>left
 set number
-set cursorline
-hi cursorline cterm=none term=none
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-highlight CursorLine guibg=#303000 ctermbg=234
+" set cursorline
+" hi cursorline cterm=none term=none
+" autocmd WinEnter * setlocal cursorline
+" autocmd WinLeave * setlocal nocursorline
+" highlight CursorLine guibg=#303000 ctermbg=234
 let &t_SI.="\e[6 q"
 let &t_EI.="\e[6 q"
-
-" let NERDTreeQuitOnOpen=1
 
 " let g:indent_guides_enable_on_vim_startup = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
