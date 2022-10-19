@@ -1,18 +1,18 @@
 "Lua Part
 lua require "user.keymaps"
 lua require "user.options"
-" lua require "user.plugins"
+lua require "user.plugins"
 
 
 
 
 "Vim part
-" filetype plugin indent on
-" syntax on
-" set background=dark " or light if you want light mode
-" set termguicolors     " enable true colors support
-" set mouse=a
-" let mapleader=" "
+filetype plugin indent on
+syntax on
+set background=dark " or light if you want light mode
+set termguicolors     " enable true colors support
+set mouse=a
+let mapleader=" "
 
 call plug#begin()
 "colorschemes
@@ -75,7 +75,10 @@ inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 ""air-line
+nmap <A-j> :m .+1<CR> 
+nmap <A-k> :m .-2<CR>
 let g:airline_powerline_fonts = 1
+set spell
 
 if !exists('g:airline_symbols')
    let g:airline_symbols = {}
