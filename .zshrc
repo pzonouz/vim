@@ -262,7 +262,6 @@ fi
 
 #######################################################################################################################
 alias c="clear"
-# alias v="nvim"
 alias e="exit"
 eval "$(jump shell)"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
