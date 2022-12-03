@@ -261,9 +261,17 @@ fi
 
 
 #######################################################################################################################
+# autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X compinit && compinit
+
+export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin
 alias c="clear"
 alias e="exit"
-eval "$(jump shell)"
+alias g="git"
+alias v="nvim"
+[[ -s /home/bigboyz1985/.autojump/etc/profile.d/autojump.sh ]] && source /home/bigboyz1985/.autojump/etc/profile.d/autojump.sh
+
+	autoload -U compinit && compinit -u
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 setxkbmap -layout us,ir
