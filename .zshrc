@@ -269,6 +269,8 @@ alias c="clear"
 alias e="exit"
 alias g="git"
 alias v="nvim"
+alias s="sudo"
+alias p="pacman"
 [[ -s /home/bigboyz1985/.autojump/etc/profile.d/autojump.sh ]] && source /home/bigboyz1985/.autojump/etc/profile.d/autojump.sh
 
 	autoload -U compinit && compinit -u
